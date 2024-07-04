@@ -1,7 +1,12 @@
+from dotenv import load_dotenv
 import os
 
-LLAMA_API = "LL-8pz7WK0eVmhtkyiHNEDx7vtgq4EeCYCpdOyesCMPvOfTwOiATVVVPKgSbDXFAmfD"
-LANGSMITH_API = "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"
+# Load environment variables from .env file into Python's os.environ
+load_dotenv()
+
+# Access your keys
+LLAMA_API = os.getenv('LLAMA_API')
+LANGSMITH_API = os.getenv('LANGSMITH_API')
 
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
